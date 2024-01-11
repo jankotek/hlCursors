@@ -60,8 +60,8 @@ XcursorImages* highlight(const char* filename, const float scale,
             for (int col = 0; col < w; col++) {
                 x = abs(col - xmid);
                 y = abs(row - ymid);
-                // if pixel is fully transparant
-                if ((hlp[row * w + col] & 0xFF000000) == 0) {
+                // if pixel has some transparency
+                if ((hlp[row * w + col] & 0xFF000000) < 0xAF000000) {
                     // and in circle distance from center
                     float dist = sqrt(x*x + y*y);
                     if(dist < rad -rimWidth) {
